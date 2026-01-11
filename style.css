@@ -326,9 +326,9 @@ body {
     margin: 0;
   }
 
-  header {
+  /* header {
     padding-top: env(safe-area-inset-top);
-  }
+  } */
 
   .parallax-section {
     padding-top: 0;
