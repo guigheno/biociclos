@@ -326,6 +326,10 @@ body {
     margin: 0;
   }
 
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+
   .parallax-section {
     padding-top: 0;
     height: 80vh;
