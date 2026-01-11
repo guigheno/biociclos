@@ -314,5 +314,10 @@ body {
     width: 280px;
     height: 180px;
   }
+
+  .forest{
+    margin-top: 35vh;
+    height: 100vh;
+  }
 }
 
