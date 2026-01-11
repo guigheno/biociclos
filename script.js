@@ -39,7 +39,7 @@ window.addEventListener("scroll", () => {
 
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  const offset = isMobile ? 400 : 50; // 👈 ajuste aqui
+  const offset = isMobile ? -300 : 50; // 👈 ajuste aqui
 
   if (scrollY > heroBottom - offset) {
     heroText.style.opacity = "0";
