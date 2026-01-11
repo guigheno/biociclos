@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Kepler+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header {
+  background: #D1EBD4;
+  padding: 20px 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+}
+
+.header nav a {
+  color: #1b5e20;
+  margin-left: 20px;
+  text-decoration: none;
+  white-space: nowrap; /* trava quebra de linha */
+}
+
+
+.hero {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  z-index: 20;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section.light {
+  background: #f5f5f5;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  flex: 1;
+  background: #e8f5e9;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.footer {
+  background: #1b5e20;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo img {
+  height: 50px;       /* controla o tamanho do logo */
+  width: auto;
+  display: block;     /* remove espaço fantasma */
+}
+
+
+
+
+/*Inicio parallax*/
+/* .parallax-section {
+  position: relative;
+  height: 100vh;
+  background: #D1EBD4;
+  overflow: hidden;
+} */
+
+.parallax-section {
+  position: relative;
+  height: 100vh;
+  background: #D1EBD4;
+  z-index: 1;
+}
+
+
+
+.parallax-section svg {
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 15%;
+  z-index: 2;
+}
+
+/* .forest img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} */
+
+.forest {
+  position: relative;
+  z-index: 10; /* acima do texto */
+  height: 100vh; /* cria scroll */
+}
+
+.forest img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+/* animação do logo */
+.line {
+  stroke-dasharray: 750;
+  stroke-dashoffset: 750;
+  stroke: white;
+  stroke-width: 3;
+  fill: none;
+  animation: dash 1.5s forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/*Fim Parallax*/
+
+
+/* .hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  margin-top: -20%;
+} */
+
+.hero-text {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 5;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👈 ESSENCIAL */
+  gap: 24px;
+
+}
+
+
+.hero-text h1 {
+  font-family: "Kepler Display", serif;
+  font-size: 64px;
+  color: #1b5e20;
+  letter-spacing: 2px;
+}
+
+.hero-text p {
+  font-family: "Kepler Display", serif;
+  font-size: 22px;
+  color: #1b5e20;
+}
+
+.hero-logo {
+  width: 600px;       /* 👈 TAMANHO PRINCIPAL */
+  max-width: 80vw;    /* segurança em telas menores */
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+
+.hero-btn {
+  display: inline-flex;        /* 👈 impede esticar */
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 32px;
+  width: auto;                 /* força tamanho do conteúdo */
+  max-width: fit-content;
+
+  z-index: 5;
+  background: #1b5e20;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+/* ================= SOBRE NÓS ================= */
+.about {
+  position: relative;
+  z-index: 20;                 /* 👈 ACIMA do hero */
+  background: #ffffff;
+  padding: 120px 0 140px;      /* mais respiro no topo */
+}
+
+/* Conteúdo */
+.about-content {
+  max-width: 720px;
+  text-align: center;
+  text-align: justify;
+}
+
+/* Título */
+.about h2 {
+  font-family: "Inter", serif;
+  font-size: 42px;
+  color: #1b5e20;
+  margin-bottom: 32px;
+}
+
+/* Texto */
+.about p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 24px;
+}
+
+/* ================= SLIDER SOBRE ================= */
+.about-slider {
+  margin-top: 64px;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+}
+
+.carousel img {
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 24px;
+  flex-shrink: 0;
+}
+
+/* trilho */
+.about-slider .slides {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+/* esconder scrollbar feia */
+.about-slider .slides::-webkit-scrollbar {
+  display: none;
+}
+.about-slider .slides {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; /* 👈 ESSENCIAL */
+}
+
+
+/* imagens */
+.about-slider img {
+  flex: 0 0 80%;
+  max-width: 80%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  scroll-snap-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .carousel img {
+    width: 280px;
+    height: 180px;
+  }
+}
+
