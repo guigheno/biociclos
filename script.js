@@ -37,7 +37,11 @@ window.addEventListener("scroll", () => {
   const heroBottom = hero.offsetTop + hero.offsetHeight;
   const scrollY = window.scrollY + window.innerHeight / 2;
 
-  if (scrollY > heroBottom - 50) {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  const offset = isMobile ? 200 : 50; // 👈 ajuste aqui
+
+  if (scrollY > heroBottom - offset) {
     heroText.style.opacity = "0";
     heroText.style.pointerEvents = "none";
   } else {
