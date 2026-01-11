@@ -328,10 +328,12 @@ body {
 
   .parallax-section {
     padding-top: 0;
+    height: 80vh;
   }
 
-  .hero-text {
-    top: 18vh;   /* antes estava alto demais */
+  .forest img {
+    bottom: 20vh;
   }
+
 }
 
