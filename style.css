@@ -321,5 +321,17 @@ body {
     width: 280px;
     height: 180px;
   }
+
+  body {
+    margin: 0;
+  }
+
+  .parallax-section {
+    padding-top: 0;
+  }
+
+  .hero-text {
+    top: 18vh;   /* antes estava alto demais */
+  }
 }
 
