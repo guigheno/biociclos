@@ -28,7 +28,7 @@ window.addEventListener("scroll", () => {
   const scrollPos = window.scrollY + window.innerHeight / 2;
 
   const isMobile = window.innerWidth <= 768;
-  const offset = isMobile ? 200 : 50; // mobile some antes
+  const offset = isMobile ? -200 : 50; // mobile some antes
 
   heroText.style.opacity =
     scrollPos > heroBottom - offset ? "0" : "1";
