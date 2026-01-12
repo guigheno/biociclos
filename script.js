@@ -1,71 +1,48 @@
-const btnContato = document.getElementById("btnContato");
-
-btnContato.addEventListener("click", () => {
-  document.getElementById("contato").scrollIntoView({
-    behavior: "smooth"
-  });
-});
-
-
+/* ================= PARALLAX FLORESTA ================= */
 const subtleness = 20;
-const maxWidth = 700;
+const maxWidth = 768;
 
-const pieces = [
-  $(".p1"),
-  $(".p2"),
-  $(".p3"),
-  $(".p4"),
-  $(".p5"),
-  $(".p6")
-];
+const pieces = document.querySelectorAll(".forest img");
 
-$(".parallax-section").on("mousemove", function (e) {
-  if ($(window).width() > maxWidth) {
-    let ax = -($(window).width() / 2 - e.pageX) / subtleness;
+document
+  .querySelector(".parallax-section")
+  ?.addEventListener("mousemove", (e) => {
+    if (window.innerWidth <= maxWidth) return;
+
+    const ax = -(window.innerWidth / 2 - e.pageX) / subtleness;
 
     pieces.forEach((piece, i) => {
-      let dir = i % 2 === 0 ? -1 : 1;
-      piece.css("transform", `translateX(${dir * ax / (14 + i)}px)`);
+      const dir = i % 2 === 0 ? -1 : 1;
+      piece.style.transform = `translateX(${dir * ax / (14 + i)}px)`;
     });
-  }
-});
+  });
 
+/* HERO*/
 const hero = document.getElementById("hero");
 const heroText = document.querySelector(".hero-text");
 
 window.addEventListener("scroll", () => {
+  if (!hero || !heroText) return;
+
   const heroBottom = hero.offsetTop + hero.offsetHeight;
-  const scrollY = window.scrollY + window.innerHeight / 2;
+  const scrollPos = window.scrollY + window.innerHeight / 2;
 
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isMobile = window.innerWidth <= 768;
+  const offset = isMobile ? 200 : 50; // mobile some antes
 
-  const offset = isMobile ? -300 : 50; // 👈 ajuste aqui
+  heroText.style.opacity =
+    scrollPos > heroBottom - offset ? "0" : "1";
 
-  if (scrollY > heroBottom - offset) {
-    heroText.style.opacity = "0";
-    heroText.style.pointerEvents = "none";
-  } else {
-    heroText.style.opacity = "1";
-    heroText.style.pointerEvents = "auto";
-  }
+  heroText.style.pointerEvents =
+    scrollPos > heroBottom - offset ? "none" : "auto";
 });
 
-const carousel = document.getElementById("carousel");
-
-let position = 0;
-const speed = 0.5; // 👈 QUANTO MENOR, MAIS LENTO
-
-function rotateCarousel() {
-  position -= speed;
-  carousel.style.transform = `translateX(${position}px)`;
-
-  // quando metade passou, reinicia suavemente
-  if (Math.abs(position) >= carousel.scrollWidth / 2) {
-    position = 0;
-  }
-
-  requestAnimationFrame(rotateCarousel);
-}
-
-rotateCarousel();
-
+/* SCROLL SUAVE */
+document.querySelectorAll('a[href="#contato"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    document
+      .getElementById("contato")
+      ?.scrollIntoView({ behavior: "smooth" });
+  });
+});
