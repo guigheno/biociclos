@@ -28,25 +28,26 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
   });
 });
 
-/* MOBILE SWAY */
+/* MOBILE – balanço automático */
 if (window.matchMedia("(max-width: 768px)").matches) {
-  const piecesMobile = document.querySelectorAll(".forest img");
+  const pieces = document.querySelectorAll(".forest img");
   let t = 0;
 
-  function mobileSway() {
-    t += 0.01; // velocidade do balanço
+  function animate() {
+    t += 0.01;
 
-    piecesMobile.forEach((piece, i) => {
+    pieces.forEach((el, i) => {
       const dir = i % 2 === 0 ? -1 : 1;
       const offset = Math.sin(t + i) * (3 + i);
-      piece.style.transform = `translateX(${dir * offset}px)`;
+      el.style.transform = `translateX(${dir * offset}px)`;
     });
 
-    requestAnimationFrame(mobileSway);
+    requestAnimationFrame(animate);
   }
 
-  // inicia automaticamente
-  mobileSway();
+  // inicia após primeira interação (Safari)
+  window.addEventListener("touchstart", animate, { once: true });
 }
+
 
 
