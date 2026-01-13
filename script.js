@@ -41,7 +41,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 
     mobilePieces.forEach((el, i) => {
       const dir = i % 2 === 0 ? -1 : 1;
-      const offset = Math.sin(t + i) * (1 + i);
+      const offset = Math.sin(t + i) * (0.3 + i);
       el.style.transform = `translateX(${dir * offset}px)`;
     });
 
