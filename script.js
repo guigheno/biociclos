@@ -39,7 +39,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 
     pieces.forEach((el, i) => {
       const dir = i % 2 === 0 ? -1 : 1;
-      const offset = Math.sin(t + i) * (0.0000001 + i);
+      const offset = Math.sin(t + i) * (3 + i);
       el.style.transform = `translateX(${dir * offset}px)`;
     });
 
@@ -49,3 +49,4 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   // inicia após primeira interação (Safari)
   window.addEventListener("touchstart", animate, { once: true });
 }
+
