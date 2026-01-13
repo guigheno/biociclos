@@ -173,61 +173,78 @@ body {
   }
 }
 
-/* ================= SERVIÇOS ================= */
 .services {
   position: relative;
   z-index: 20;
   background: #ffffff;
-  padding: 100px 0;
+  padding: 120px 0;
+  font-family: "Inter", sans-serif;
 }
 
-.services h2 {
+.services-title {
   font-size: 42px;
   color: #1b5e20;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .services-intro {
-  max-width: 600px;
-  margin-bottom: 60px;
-  color: #555;
-  font-size: 18px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-
-.service-card {
-  background: #f5f9f6;
-  padding: 32px 24px;
-  border-radius: 16px;
+  max-width: 720px;
+  margin: 0 auto 80px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-}
-
-.service-icon {
-  font-size: 40px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.service-card h3 {
-  color: #1b5e20;
-  margin-bottom: 12px;
-  font-size: 20px;
-}
-
-.service-card p {
-  font-size: 15px;
+  font-size: 18px;
   color: #555;
-  line-height: 1.6;
+}
+
+.services-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.service-group {
+  background: #f6f9f6;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.service-group h3 {
+  color: #1b5e20;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.service-group ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 720px;
+}
+
+.service-group li {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a4a4a;
+
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
+  text-align: left;   /* 👈 IGUAL AO SOBRE */
+}
+
+
+.service-group li::before {
+  content: "•";
+  color: #1b5e20;
+  position: absolute;
+  left: 0;
 }
 
 /* ================= FOOTER ================= */
@@ -257,7 +274,7 @@ body {
     height: 180px;
   }
 
-  .services-grid {
+  .services-groups {
     grid-template-columns: 1fr;
   }
 }
