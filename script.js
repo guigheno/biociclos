@@ -28,31 +28,25 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
   });
 });
 
-/* PARALLAX FLORESTA MOBILE */
-const pieces = document.querySelectorAll(".forest img");
-let t = 0;
-let mobileStarted = false;
+/* MOBILE SWAY */
+if (window.matchMedia("(max-width: 768px)").matches) {
+  const piecesMobile = document.querySelectorAll(".forest img");
+  let t = 0;
 
-function swayTrees() {
-  t += 0.01;
+  function mobileSway() {
+    t += 0.01; // velocidade do balanço
 
-  pieces.forEach((piece, i) => {
-    const dir = i % 2 === 0 ? -1 : 1;
-    const offset = Math.sin(t + i) * (4 + i);
-    piece.style.transform = `translateX(${dir * offset}px)`;
-  });
+    piecesMobile.forEach((piece, i) => {
+      const dir = i % 2 === 0 ? -1 : 1;
+      const offset = Math.sin(t + i) * (3 + i);
+      piece.style.transform = `translateX(${dir * offset}px)`;
+    });
 
-  requestAnimationFrame(swayTrees);
+    requestAnimationFrame(mobileSway);
+  }
+
+  // inicia automaticamente
+  mobileSway();
 }
 
-// GATILHO MOBILE
-function startMobileParallax() {
-  if (mobileStarted) return;
-  mobileStarted = true;
-  swayTrees();
-}
-
-// qualquer interação inicia
-window.addEventListener("touchstart", startMobileParallax, { once: true });
-window.addEventListener("scroll", startMobileParallax, { once: true });
 
