@@ -31,31 +31,21 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
 
 /* MOBILE – balanço automático */
 if (window.matchMedia("(max-width: 768px)").matches) {
-  // Use uma variável diferente ou reutilize com escopo local
-  const mobilePieces = document.querySelectorAll(".forest img");
+  const pieces = document.querySelectorAll(".forest img");
   let t = 0;
-  let animationId = null;
 
   function animate() {
-    t += 0.001;
+    t += 0.01;
 
-  const maxMove = 0.1; // controle 
+    pieces.forEach((el, i) => {
+      const dir = i % 2 === 0 ? -1 : 1;
+      const offset = Math.sin(t + i) * (0.0000001 + i);
+      el.style.transform = `translateX(${dir * offset}px)`;
+    });
 
-  mobilePieces.forEach((el, i) => {
-    const dir = i % 2 === 0 ? -1 : 1;
-    const layerFactor = 1 + i * 0.15; // profundidade suave
-    const offset = Math.sin(t + i) * maxMove * layerFactor;
-    el.style.transform = `translateX(${dir * offset}px)`;
-  });
-
-    animationId = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
 
-  // Inicia após primeira interação (Safari)
-  window.addEventListener("touchstart", () => {
-    if (!animationId) animate();
-  }, { once: true });
-  
-  // Opcional: também inicia após carregamento se já estiver em mobile
-  animate();
+  // inicia após primeira interação (Safari)
+  window.addEventListener("touchstart", animate, { once: true });
 }
