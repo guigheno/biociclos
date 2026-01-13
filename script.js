@@ -39,7 +39,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   function animate() {
     t += 0.001;
 
-  const maxMove = 0.05; // controle 
+  const maxMove = 0.9; // controle 
 
   mobilePieces.forEach((el, i) => {
     const dir = i % 2 === 0 ? -1 : 1;
