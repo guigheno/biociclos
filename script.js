@@ -27,3 +27,26 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
       ?.scrollIntoView({ behavior: "smooth" });
   });
 });
+
+// Animação das árvores no mobile
+const isMobile = window.innerWidth <= 768;
+const forestImages = document.querySelectorAll(".forest img");
+
+if (isMobile) {
+  let t = 0;
+
+  function swayTrees() {
+    t += 0.01; // velocidade (quanto menor mais lento)
+
+    forestImages.forEach((img, i) => {
+      const amplitude = 4 + i; // intensidade do balanço
+      const offset = Math.sin(t + i) * amplitude;
+
+      img.style.transform = `translateX(${offset}px)`;
+    });
+
+    requestAnimationFrame(swayTrees);
+  }
+
+  swayTrees();
+}
