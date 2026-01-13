@@ -29,7 +29,7 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
 });
 
 // Animação das árvores no mobile
-const isMobile = window.innerWidth <= 768;
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
 const forestImages = document.querySelectorAll(".forest img");
 
 if (isMobile) {
