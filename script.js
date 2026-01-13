@@ -39,11 +39,14 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   function animate() {
     t += 0.01;
 
-    mobilePieces.forEach((el, i) => {
-      const dir = i % 2 === 0 ? -1 : 1;
-      const offset = Math.sin(t + i) * (0.000005 + i);
-      el.style.transform = `translateX(${dir * offset}px)`;
-    });
+  const maxMove = 0.4; // controle 
+
+  mobilePieces.forEach((el, i) => {
+    const dir = i % 2 === 0 ? -1 : 1;
+    const layerFactor = 1 + i * 0.15; // profundidade suave
+    const offset = Math.sin(t + i) * maxMove * layerFactor;
+    el.style.transform = `translateX(${dir * offset}px)`;
+  });
 
     animationId = requestAnimationFrame(animate);
   }
