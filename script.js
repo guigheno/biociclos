@@ -2,7 +2,8 @@
 const subtleness = 20;
 const maxWidth = 768;
 
-const pieces = document.querySelectorAll(".forest img");
+// Renomeie esta variável para evitar conflito
+const desktopPieces = document.querySelectorAll(".forest img");
 
 document
   .querySelector(".parallax-section")
@@ -11,7 +12,7 @@ document
 
     const ax = -(window.innerWidth / 2 - e.pageX) / subtleness;
 
-    pieces.forEach((piece, i) => {
+    desktopPieces.forEach((piece, i) => {
       const dir = i % 2 === 0 ? -1 : 1;
       piece.style.transform = `translateX(${dir * ax / (14 + i)}px)`;
     });
@@ -30,24 +31,28 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
 
 /* MOBILE – balanço automático */
 if (window.matchMedia("(max-width: 768px)").matches) {
-  const pieces = document.querySelectorAll(".forest img");
+  // Use uma variável diferente ou reutilize com escopo local
+  const mobilePieces = document.querySelectorAll(".forest img");
   let t = 0;
+  let animationId = null;
 
   function animate() {
     t += 0.01;
 
-    pieces.forEach((el, i) => {
+    mobilePieces.forEach((el, i) => {
       const dir = i % 2 === 0 ? -1 : 1;
       const offset = Math.sin(t + i) * (3 + i);
       el.style.transform = `translateX(${dir * offset}px)`;
     });
 
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
   }
 
-  // inicia após primeira interação (Safari)
-  window.addEventListener("touchstart", animate, { once: true });
+  // Inicia após primeira interação (Safari)
+  window.addEventListener("touchstart", () => {
+    if (!animationId) animate();
+  }, { once: true });
+  
+  // Opcional: também inicia após carregamento se já estiver em mobile
+  animate();
 }
-
-
-
