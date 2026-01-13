@@ -37,7 +37,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   let animationId = null;
 
   function animate() {
-    t += 0.01;
+    t += 0.001;
 
   const maxMove = 0.01; // controle 
 
