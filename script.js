@@ -1,4 +1,4 @@
-/* ================= PARALLAX FLORESTA ================= */
+/* PARALLAX FLORESTA */
 const subtleness = 20;
 const maxWidth = 768;
 
@@ -28,25 +28,31 @@ document.querySelectorAll('a[href="#contato"]').forEach((link) => {
   });
 });
 
-// Animação das árvores no mobile
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
-const forestImages = document.querySelectorAll(".forest img");
+/* PARALLAX FLORESTA MOBILE */
+const pieces = document.querySelectorAll(".forest img");
+let t = 0;
+let mobileStarted = false;
 
-if (isMobile) {
-  let t = 0;
+function swayTrees() {
+  t += 0.01;
 
-  function swayTrees() {
-    t += 0.01; // velocidade (quanto menor mais lento)
+  pieces.forEach((piece, i) => {
+    const dir = i % 2 === 0 ? -1 : 1;
+    const offset = Math.sin(t + i) * (4 + i);
+    piece.style.transform = `translateX(${dir * offset}px)`;
+  });
 
-    forestImages.forEach((img, i) => {
-      const amplitude = 4 + i; // intensidade do balanço
-      const offset = Math.sin(t + i) * amplitude;
+  requestAnimationFrame(swayTrees);
+}
 
-      img.style.transform = `translateX(${offset}px)`;
-    });
-
-    requestAnimationFrame(swayTrees);
-  }
-
+// GATILHO MOBILE
+function startMobileParallax() {
+  if (mobileStarted) return;
+  mobileStarted = true;
   swayTrees();
 }
+
+// qualquer interação inicia
+window.addEventListener("touchstart", startMobileParallax, { once: true });
+window.addEventListener("scroll", startMobileParallax, { once: true });
+
