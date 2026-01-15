@@ -67,7 +67,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   z-index: 2;
-  pointer-events: none;
+  pointer-events: auto;
 
   display: flex;
   flex-direction: column;
@@ -92,6 +92,7 @@ body {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
+  pointer-events: auto;
 }
 
 /* ================= FLORESTA ================= */
@@ -99,6 +100,7 @@ body {
   position: relative;
   height: 100vh;
   z-index: 5;
+  pointer-events: none;
 }
 
 .forest img {
@@ -181,19 +183,27 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.services-title {
-  font-size: 42px;
-  color: #1b5e20;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
+.services-title,
 .services-intro {
   max-width: 720px;
-  margin: 0 auto 80px;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  color: #1b5e20;
+  margin-bottom: 32px;
+}
+
+.services p {
+  font-family: "Inter", sans-serif;
   font-size: 18px;
-  color: #555;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 24px;
+  text-align: justify;
 }
 
 .services-groups {
@@ -222,23 +232,12 @@ body {
 }
 
 .service-group ul {
-  list-style: none;
-  padding-left: 0;
   max-width: 720px;
 }
 
 .service-group li {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #4a4a4a;
-
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 18px;
-  text-align: left;   /* 👈 IGUAL AO SOBRE */
+  text-align: left;
 }
-
 
 .service-group li::before {
   content: "•";
@@ -246,6 +245,33 @@ body {
   position: absolute;
   left: 0;
 }
+
+
+/* Contato */
+#contato {
+  background: #ffffff;
+  position: relative;
+  z-index: 20;
+}
+
+#contato h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  color: #1b5e20;
+  margin-bottom: 24px;
+}
+
+#contato p {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  max-width: 720px;
+}
+
+
+
 
 /* ================= FOOTER ================= */
 .footer {
