@@ -232,19 +232,24 @@ body {
 }
 
 .service-group ul {
-  max-width: 720px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .service-group li {
-  text-align: left;
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
 }
 
 .service-group li::before {
   content: "•";
-  color: #1b5e20;
   position: absolute;
   left: 0;
+  color: #1b5e20;
 }
+
 
 
 /* Contato */
