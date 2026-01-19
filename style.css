@@ -120,7 +120,7 @@ body {
 .about {
   position: relative;
   z-index: 20;
-  background: #ffffff;
+  background: #2e6c32;
 }
 
 .about-content {
@@ -131,7 +131,7 @@ body {
 .about h2 {
   font-family: "Inter", sans-serif;
   font-size: 42px;
-  color: #1b5e20;
+  color: #c5c5c5;
   margin-bottom: 32px;
 }
 
@@ -139,7 +139,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1.7;
-  color: #4a4a4a;
+  color: #c5c5c5;
   margin-bottom: 24px;
   text-align: justify;
 }
